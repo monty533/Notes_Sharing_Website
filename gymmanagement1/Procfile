@@ -1,0 +1,1 @@
+web: gunicorn gymmanagement1.wsgi
