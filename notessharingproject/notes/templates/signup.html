@@ -1,0 +1,77 @@
+{% extends 'navigation.html' %}
+{% load static %}
+{% block body %}
+
+{% ifequal error 'no' %}
+<script>
+    console.log("monty");
+    alert('Signup successfully');
+    window.location=('/login');
+</script>
+{% endifequal %}
+
+{% ifequal error 'yes' %}
+<script>
+    console.log("monty 1");
+    
+    alert('Something went wrong , Try again');
+</script>
+{% endifequal %}
+
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-sm-6">
+            <h2 class="text-center">Existing Customer</h2>
+            <Hr>
+            <p>By creating an account with our website , you will able to move through the notes uploading and
+                downloading process
+                and more...</p>
+            <center><a href="/signup" class="btn btn-danger text-white mt-5">CREATE AN ACCOUNT</a></center>
+        </div>
+
+        <div class="col-sm-6">
+            <h2 class="text-center">Register With Us</h2>
+            <Hr>
+            <p>If you have not an account with us , please sign up </p>
+            <form action="" method="post">
+                {% csrf_token %}
+
+                <label>First name:</label>
+                <input type="text" class="form-control" name="firstname" placeholder="fistname">
+
+                <label>Last name:</label>
+                <input type="text" class="form-control" name="lastname" placeholder="lastname">
+
+                <label>Contact:</label>
+                <input type="text" class="form-control" name="contact" placeholder="enter phone number">
+
+                <label>Email Id:</label>
+                <input type="email" class="form-control" name="emailid" placeholder="enter email id">
+
+                <label>Password:</label>
+                <input type="password" class="form-control" name="password" placeholder="enter password">
+
+                <label>Branch:</label>
+                    <select class="form-control" name="branch">
+                        <option value="Computer Science">Computer Science</option>
+                        <option value="Mechanical">Mechanical</option>
+                        <option value="Electronics">Electronics</option>
+                        <option value="Civil">Civil</option>
+                    </select>
+
+                <label>Are You:</label>
+                <select class="form-control" name="role">
+                    <option value="Student">Student</option>
+                    <option value="Teacher">Teacher</option>
+                
+                </select>
+
+
+
+                <input type="submit" class="btn btn-primary mt-2 " value="Signup">
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock body %}
